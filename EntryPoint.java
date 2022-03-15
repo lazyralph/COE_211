@@ -1,29 +1,50 @@
-
-import java.util.*;
-import java.lang.Math;
 import java.util.Scanner;
-import java.util.Random;
-    public class EntryPoint {
-        public static void main(String[]args){
-            Scanner sc= new Scanner(System.in);
-            int x = 0;
-            int rand = (int)(Math.random() * 10);
-            while (x<rand){
-                System.out.print("Please input the employee's first name: ");
-                String FirstName= sc.next();
-                System.out.print("Please input the employee's last name: ");
-                String LastName= sc.next();
-                System.out.print("Please input the employee's age: ");
-                int Age= sc.nextInt();
-                System.out.print("Please input the employee's MonthlySalary: ");
-                double MonthlySalary= sc.nextDouble();
-                Employee Person= new Employee (FirstName,LastName,Age,MonthlySalary);
-                System.out.println("Employee information:" + Person.FirstName + " " + Person.LastName + ", " + Person.Age + ", " + Person.MonthlySalary);
-                x++;
-                int Executions = rand-x;
-                System.out.println("You have " + Executions + " insertions left");
-            }
-        }
+public class EntryPoint {
+    public static void main (String[] args) {
+		 Scanner scan = new Scanner(System.in);
+		 String choice ;
+		 boolean abc = true;
+		 do{
+		 System.out.println("Which service would you like to use?" +"\n"
+		 			+ "[1]: Basic week visualizer" +"\n"
+					+ "[2]: Advanced week visualizer" +"\n"
+					+ "[3]: Basic calculator" +"\n"
+		 			+ "[4]: Employee repertoire");
+		 choice = scan.nextLine();
+
+               
+           
+		switch(choice){
+			 case "1":
+				BasicWeek basic = new BasicWeek();
+				basic.printDays();
+				break;
+			 case "2":
+				AdvancedWeek adv = new AdvancedWeek();
+				adv.printDays();
+				break;
+			 case "3":
+				Calculator calc = new Calculator();
+				break;
+			 case "4":
+				Employee employee = new Employee();
+				System.out.println(employee);
+				break;
+			 default:
+			      System.out.println("Please make sure you pick a number between 1 and 4: ");
+				abc = true;
+		 }
+
+		
+
+		 System.out.println("Would you like to perform another operation? (y/n)");
+		 String chance = scan.nextLine();
+		 if(chance.equals("y")){
+			 abc = true;
+		 }else{
+			 abc= false;
+		 }
+		 }while(abc);
+		 
     }
-
-
+}

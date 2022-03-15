@@ -1,16 +1,30 @@
+import java.util.Scanner;
+
 public class Employee {
+    // Initializing variables
+    private String First;
+    private String Last;
+    private int Age;
+    private double salary;
 
-	 String FirstName;
-	 String LastName;
-	 int Age;
-	 double MonthlySalary;
+    public Employee() {
+        
+        Scanner scan = new Scanner(System.in);
+	System.out.println("Please input the employee's first name: ");
+	First = scan.nextLine();
+	System.out.println("Please input the employee's last name: ");
+	Last = scan.nextLine();
+	System.out.println("Please input the employee's age: ");
+      Age = scan.nextInt();
+	System.out.println("Please input the employee's salary: ");
+	salary = scan.nextDouble();
 
-    Employee(String first, String last, int age, double sal){
-
-        FirstName= first;
-        LastName= last;
-        Age= age;
-        MonthlySalary= sal;
+	
     }
 
+    public String toString() {
+	return "Employee informations: " + First +" " + Last + "," + Age + "," + salary;
+
+        
+    }
 }
